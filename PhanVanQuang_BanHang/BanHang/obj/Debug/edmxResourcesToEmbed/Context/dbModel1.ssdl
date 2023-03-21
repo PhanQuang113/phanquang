@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webbanhangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'webbanhang.dbo.Brand' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="50" />
+    <Property Name="Slug" Type="varchar" MaxLength="50" />
+    <Property Name="ShowOnHomePage" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="CreatedOnUct" Type="datetime" />
+    <Property Name="UpdatedOnUct" Type="datetime" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'webbanhang.dbo.Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nchar" MaxLength="10" />
+    <Property Name="Slug" Type="varchar" MaxLength="50" />
+    <Property Name="ShowOnHomePage" Type="bit" />
+    <Property Name="DicsplayOrder" Type="int" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="CreatedOnUct" Type="datetime" />
+    <Property Name="UpdatedOnUct" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'webbanhang.dbo.Order' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Productld" Type="int" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreatedOnUct" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'webbanhang.dbo.Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nchar" MaxLength="10" />
+    <Property Name="Categoryld" Type="int" />
+    <Property Name="ShortDes" Type="nvarchar" MaxLength="50" />
+    <Property Name="FullDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="float" />
+    <Property Name="PriceDiscount" Type="float" />
+    <Property Name="Typeld" Type="int" />
+    <Property Name="Slug" Type="varchar" MaxLength="50" />
+    <Property Name="Brandld" Type="int" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="ShowOnHomePage" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="CreatedOnUct" Type="datetime" />
+    <Property Name="UpdatedOnUct" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'webbanhang.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="IsAdmin" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="webbanhangModelStoreContainer">
+    <EntitySet Name="Brand" EntityType="Self.Brand" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Brand].[id] AS [id], 
+    [Brand].[Name] AS [Name], 
+    [Brand].[Avatar] AS [Avatar], 
+    [Brand].[Slug] AS [Slug], 
+    [Brand].[ShowOnHomePage] AS [ShowOnHomePage], 
+    [Brand].[DisplayOrder] AS [DisplayOrder], 
+    [Brand].[CreatedOnUct] AS [CreatedOnUct], 
+    [Brand].[UpdatedOnUct] AS [UpdatedOnUct], 
+    [Brand].[Deleted] AS [Deleted]
+    FROM [dbo].[Brand] AS [Brand]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Category" EntityType="Self.Category" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Category].[id] AS [id], 
+    [Category].[Name] AS [Name], 
+    [Category].[Avatar] AS [Avatar], 
+    [Category].[Slug] AS [Slug], 
+    [Category].[ShowOnHomePage] AS [ShowOnHomePage], 
+    [Category].[DicsplayOrder] AS [DicsplayOrder], 
+    [Category].[Deleted] AS [Deleted], 
+    [Category].[CreatedOnUct] AS [CreatedOnUct], 
+    [Category].[UpdatedOnUct] AS [UpdatedOnUct]
+    FROM [dbo].[Category] AS [Category]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Order" EntityType="Self.Order" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Order].[id] AS [id], 
+    [Order].[Name] AS [Name], 
+    [Order].[Productld] AS [Productld], 
+    [Order].[Price] AS [Price], 
+    [Order].[Status] AS [Status], 
+    [Order].[CreatedOnUct] AS [CreatedOnUct]
+    FROM [dbo].[Order] AS [Order]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product" EntityType="Self.Product" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product].[id] AS [id], 
+    [Product].[Name] AS [Name], 
+    [Product].[Avatar] AS [Avatar], 
+    [Product].[Categoryld] AS [Categoryld], 
+    [Product].[ShortDes] AS [ShortDes], 
+    [Product].[FullDescription] AS [FullDescription], 
+    [Product].[Price] AS [Price], 
+    [Product].[PriceDiscount] AS [PriceDiscount], 
+    [Product].[Typeld] AS [Typeld], 
+    [Product].[Slug] AS [Slug], 
+    [Product].[Brandld] AS [Brandld], 
+    [Product].[Deleted] AS [Deleted], 
+    [Product].[ShowOnHomePage] AS [ShowOnHomePage], 
+    [Product].[DisplayOrder] AS [DisplayOrder], 
+    [Product].[CreatedOnUct] AS [CreatedOnUct], 
+    [Product].[UpdatedOnUct] AS [UpdatedOnUct]
+    FROM [dbo].[Product] AS [Product]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Users].[id] AS [id], 
+    [Users].[FirstName] AS [FirstName], 
+    [Users].[LastName] AS [LastName], 
+    [Users].[Email] AS [Email], 
+    [Users].[Password] AS [Password], 
+    [Users].[IsAdmin] AS [IsAdmin]
+    FROM [dbo].[Users] AS [Users]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
